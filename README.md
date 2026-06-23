@@ -35,8 +35,8 @@ El material está organizado en los siguientes scripts y archivos:
   * `histograma_inciso6.py`: Simula la respuesta fenomenológica y la tasa de eventos en un detector terrestre de agua pesada análogo a SNO.
 
 **Documentación:**
-  * `Informe_Final_Fisica_Computacional.pdf`: Documento formal estilo *paper* con el marco teórico, metodología computacional, análisis físico detallado de resultados y conclusiones.
-
+  * `Informe_Final_Fisica_Computacional.pdf`: informe del 2do avance estilo *paper* con el marco teórico, metodología computacional, análisis físico detallado de resultados y conclusiones.
+  * `Informe_Avance_Fisica_Computacional_Tomas_Silva.pdf`: Es el informe final, con *paper* con el marco teórico, metodología computacional, análisis físico detallado de resultados y conclusiones.
 ---
 
 ## Requisitos y Dependencias
