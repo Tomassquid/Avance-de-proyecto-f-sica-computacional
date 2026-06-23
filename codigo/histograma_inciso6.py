@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 #llamamos a los cripts que ya hicismos
 from densidad_solar_inciso1 import funcion_intepolacion
-from parametros import hamiltoniano_vacio
+from parametros import hamiltoniano_vacio, matriz_pmns, theta_12, theta_13, theta_23, delta_cp
 from evolucion import rk4_adaptativo
 
 #definimos una aproximacion del espectro de emision beta del Boro-8 en el sol
@@ -60,7 +60,16 @@ def detector_aguapesada():
             x_i, x_f, psi_i, h_i, tolerancia, 
             r_datos, rho_datos, H0, R_sol
         )
-        prob_supervivencia = np.abs(psi_historial[-1][0])**2
+
+        #paso 1: extraemos probabilidad promediada despues del efecto MSW y viaje a la Tierra
+        psi_f = psi_historial[-1]
+        U = matriz_pmns(theta_12, theta_13, theta_23, delta_cp)
+        U_daga = np.conjugate(U).T
+        psi_masa = np.dot(U_daga, psi_f)
+        
+        prob_supervivencia = (np.abs(psi_masa[0])**2 * np.abs(U[0,0])**2 + 
+                              np.abs(psi_masa[1])**2 * np.abs(U[0,1])**2 + 
+                              np.abs(psi_masa[2])**2 * np.abs(U[0,2])**2)
         
         #paso 2: calculamos flujo de Boro-8 y seccion eficaz de deuterio
         flujo = flujo_boro8(E)
